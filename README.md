@@ -15,8 +15,8 @@ Groups and categories might not be the most correct ones. Any correction/suggest
   - **[Simple Port Scanner]()**
   - **[Packet Sniffer]()**
   - **[DNS Spoofing]()**
-  - **[FakeAP]()** - Further features under development. 
-  - **[Deauther](https://github.com/amtzespinosa/esp8266-wifi-deauther)** - Check [here]() the hardware version with an **ESP-8266.** 
+  - **[FakeAP]()** - Further features under development
+  - **[Deauther](https://github.com/amtzespinosa/esp8266-wifi-deauther)** - Check [here]() the hardware version with an **ESP-8266** 
   
 - ### [Remote Access]()
   - **[Reverse Shell]()** - Client side

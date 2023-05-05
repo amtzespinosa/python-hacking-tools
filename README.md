@@ -7,7 +7,8 @@ Some of them may have their own repo for further explanation/ease of installatio
 ## Index 
 Groups and categories might not be the most correct ones. Any correction/suggestion is welcome!
 
-- ### [Networking Tools]()
+- ### [Networking Tools]() 
+  - **[Network Scanner]()**
   - **[ARPTool]()** - CLI Tool 
     - [ARP Scanning]()
     - [ARP Spoofing]()

@@ -4,6 +4,8 @@ These are some of the python tools and scripts I have crafted. I will be updatin
 
 Some of them may have their own repo for further explanation/ease of installation (as in the case of the CLI tools).
 
+> **Note:** I know many of the scripts are not precisely clean neirher efficient. This is because they were coded in a rush during some jobs and fastly and poorly cleaned afterwards. My apologies.
+
 ## Index 
 Groups and categories might not be the most correct ones. Any correction/suggestion is welcome!
 
@@ -107,12 +109,14 @@ This would be part of a future project I'm working on called **FartSuite.** You 
 
 ### DNS Spoofer
 
-This script is able to perform a **DNS cache poisoning attack**. Well... kind of. It does perform the spoof attack **BUT** if the victim's browser has the website cached and it's a secure browser like **Chrome or Firefox**, the attack won't succeed.
+This script is able to perform a **DNS cache poisoning attack**. Well... kind of. It does perform the spoof attack **BUT** if the victim's browser has the website cached and it's a secure browser like **Chrome or Firefox**, the attack won't likely succeed.
 
 I will work to improve that, I promise.
 
-To use it, first you'll have to perform an ARP Spoofing attack with the [ARP Spoofing](#arp-tool) tool.
+To use it, first you'll have to perform an ARP Spoofing attack with the [ARP Spoofing](#arp-tool) tool. This way you perform a Man in the Middle so now you can poison the DNS.
 
 #### Use:
 
-    sudo python3 dnsspoof.py 
+    sudo python3 dnsspoof.py -d [domain] -t [target IP]
+    
+> **Note:** In this script, the target IP is NOT the victim's IP but the IP where the victim will be redirected.

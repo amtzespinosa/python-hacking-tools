@@ -1,10 +1,10 @@
 # Python Hacking Tools Showcase 
 
-These are some of the python tools and scripts I have crafted. I will be updating the repo as I code more or if any update needs to be made.
+These are some of the python tools and scripts I have crafted so far. I will be updating the repo as I code more or if any update needs to be made.
 
 Some of them may have their own repo for further explanation/ease of installation (as in the case of the CLI tools).
 
-> **Note:** I know many of the scripts are not precisely clean neirher efficient. This is because they were coded in a rush during some jobs and fastly and poorly cleaned afterwards. My apologies.
+> **Note:** I know many of the scripts are not precisely clean neither efficient. This is because they were coded in a rush during some jobs and fastly and poorly cleaned afterwards. My apologies.
 
 ## Index 
 Groups and categories might not be the most correct ones. Any correction/suggestion is welcome!
@@ -47,6 +47,7 @@ These are some ARP utilities joined in a CLI tool. If you want to go for the ful
 Anyway, if you want to **use it as a Python script**, you can download the **[ARPTool](/ARPTool)** folder and run it like so.
 
 **ARP Scan:** 
+
 Use:
 
     sudo python3 arptool.py -s [target network/subnet]
@@ -56,6 +57,7 @@ Example:
     sudo python3 arptool.py -s 192.168.0.1/24
 
 **ARP Spoof:** 
+
 Use:
 
     sudo python3 arptool.py -t [victim's IP] -g [gateway IP]
@@ -65,6 +67,7 @@ Example:
     sudo pyhton3 arptool.py -t 192.168.0.20 -g 192.168.0.1
 
 **ARP Spoof detection:**
+
 Use: 
 
     sudo python3 arptool.py -d [NIC in monitor mode]
@@ -113,10 +116,19 @@ This script is able to perform a **DNS cache poisoning attack**. Well... kind of
 
 I will work to improve that, I promise.
 
-To use it, first you'll have to perform an ARP Spoofing attack with the [ARP Spoofing](#arp-tool) tool. This way you perform a Man in the Middle so now you can poison the DNS.
+To use it, first you'll have to perform an ARP Spoofing attack with the [ARP Spoofing](#arp-tool) tool. This way you perform a **Man in the Middle** so now you can poison the DNS.
 
 #### Use:
 
     sudo python3 dnsspoof.py -d [domain] -t [target IP]
     
 > **Note:** In this script, the target IP is NOT the victim's IP but the IP where the victim will be redirected.
+
+So, as an example of a common use would be: 
+   1. Scan the network and choose your target
+   2. Perform an ARP Spoofing attack 
+   3. Run the DNS Spoofer script as explained above 
+   4. And, to make sure it's working, you can start an Apache server locally and use that IP to redirect the traffic to.
+   
+Let your imagination fly...
+

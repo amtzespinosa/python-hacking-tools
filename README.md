@@ -12,9 +12,9 @@ Groups and categories might not be the most correct ones. Any correction/suggest
 - **[Networking](#networking)** 
   - [Network Scanner](#network-scanner)
   - [ARPTool](#arp-tool) *- CLI Tool + individual scripts* 
-    - *[ARP Scanner](#arp-scanner)*
-    - *[ARP Spoofer](#arp-spoofer)*
-    - *[ARP Spoofing detection](#arp-spoofer-detection)*
+    - *ARP Scanner*
+    - *ARP Spoofer*
+    - *ARP Spoofing detection*
   - [Simple Port Scanner](#simple-port-scanner)
   - [Packet Sniffer](#packet-sniffer)
   - [DNS Spoofer](#dns-spoofer)

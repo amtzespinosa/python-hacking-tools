@@ -44,7 +44,7 @@ You have to specify the NIC you are going to use and has to be in monitor mode.
 ### ARP Tool
 These are some ARP utilities joined in a CLI tool. If you want to go for the full tool, check it's own repo here. In it's repo, all the code is explained and you can clone it for an easy installation.
 
-Anyway, if you want to **use it as a Python script**, you can download the **[ARPTool](/ARPTool)** folder and run it like so.
+Anyway, if you want to **use it as a Python script**, you can download the **[ARPTool](Networking/ARPTool/CLI)** folder and run it like so.
 
 **ARP Scan:** 
 
@@ -76,11 +76,11 @@ Example:
 
     sudo python3 arptool.py -d wlan0
 
-I have uploaded the standalone scripts as well. Those are the ones in the **[/ARPTool/Scripts](/ARPTool/Scripts)** the folder:
+I have uploaded the standalone scripts as well. Those are the ones in the **[/ARPTool](/ARPTool)** folder:
 
- - [arpscan.py](/ARPTool/Scripts/arpscan.py)
- - [arpspoof.py](/ARPTool/Scripts/arpspoof.py)
- - [arpspoof_detect.py](/ARPTool/Scripts/arpspoof_detect.py)
+ - [arpscan.py](/ARPTool/arpscan.py)
+ - [arpspoof.py](/ARPTool/arpspoof.py)
+ - [arpspoof_detect.py](/ARPTool/arpspoof_detect.py)
 
 And the use is similar to the **arptool.py** script. Just use the script you want to:
 
@@ -125,7 +125,7 @@ To use it, first you'll have to perform an ARP Spoofing attack with the [ARP Spo
 > **Note:** In this script, the target IP is NOT the victim's IP but the IP where the victim will be redirected.
 
 So, as an example of a common use would be: 
-   1. Scan the network and choose your target
+   1. Scan the network with ARP Scanner and choose your target
    2. Perform an ARP Spoofing attack 
    3. Run the DNS Spoofer script as explained above 
    4. And, to make sure it's working, you can start an Apache server locally and use that IP to redirect the traffic to.

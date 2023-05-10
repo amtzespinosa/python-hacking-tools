@@ -1,4 +1,4 @@
-![Python Hacking Tools](/img/python-hacking-tools.png)
+![Python Hacking Tools](/img/logo.png)
 
 These are some of the python tools and scripts I have crafted so far. I will be updating the repo as I code more or if any update needs to be made.
 

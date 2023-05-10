@@ -6,12 +6,14 @@ Some of them may have their own repo for further explanation/ease of installatio
 
 > **Note:** I know many of the scripts are not precisely clean neither efficient. This is because they were coded in a rush during some jobs and fastly and poorly cleaned afterwards. My apologies.
 
+If you are promped with any error when running any script, check the error, it might be due to any library missing. As in the case of the keylogger as you must install the keyboard package for python.
+
 ## Index 
 Groups and categories might not be the most correct ones. Any correction/suggestion is welcome!
 
 - **[Networking](#networking)** 
   - [Network Scanner](#network-scanner)
-  - [ARPTool](#arp-tool) *- CLI Tool + individual scripts* 
+  - [ARPTool](#arp-tool) *- CLI script + individual scripts* 
     - *ARP Scanner*
     - *ARP Spoofer*
     - *ARP Spoofing detection*
@@ -22,13 +24,15 @@ Groups and categories might not be the most correct ones. Any correction/suggest
   - [Deauther](#deauther) *- Check [here](https://github.com/amtzespinosa/esp8266-wifi-deauther) the hardware version with an **ESP-8266*** 
   
 - **[Remote Access](#remote-access)**
-  - [Reverse Shell](#reverse-shell-client-side) *- Client side*
+  - [Reverse Shell](#reverse-shell-client-side) *- Attacker's side*
   
 - **[Payloads](#payloads)**
-  - [Keylogger](#keylogger) *- Includes **.exe*** 
-  - [Reverse Shell](#reverse-shell-server-side) *- Server side. Includes **.exe***
+  - [Keylogger](#keylogger)
+  - [Reverse Shell](#reverse-shell-server-side) *- Victim's side*
+
+> Coming soon: Stealthy **.exe** for both scripts so they can be run in the background
   
-- **[Cryptography](#cryptography)**
+- **[Hiding Data](#hiding-data)**
   - [Dencrypter](#dencrypter)
   
 ## Networking
@@ -42,9 +46,10 @@ This is a simple *airodump-ng* like **Network Scanner.** To use it you will have
 You have to specify the NIC you are going to use and has to be in monitor mode.
 
 ### ARP Tool
-These are some ARP utilities joined in a CLI tool. If you want to go for the full tool, check it's own repo here. In it's repo, all the code is explained and you can clone it for an easy installation.
 
-Anyway, if you want to **use it as a Python script**, you can download the **[ARPTool](Networking/ARPTool/CLI)** folder and run it like so.
+> **Coming soon:** All ARP utilities will be packed in a CLI tool.
+
+Meanwhile, if you want to **use it as a Python script**, you can download the **[ARPTool](Networking/ARPTool/CLI)** folder and run it like so.
 
 **ARP Scan:** 
 
@@ -132,3 +137,96 @@ So, as an example of a common use would be:
    
 Let your imagination fly...
 
+### FakeAP
+
+> **Note:** FakeAP is currently under further development.
+
+By now, the script is only able to set fake APs with no internet connection neither password. 
+
+I am trying to make it perform better so it would be able to set a rogue AP with internet conection and password in order to perform **Evil Twin** attacks.
+
+In the meanwhile...
+
+#### Use:
+
+    sudo python3 fap.py -s [SSID] -i [NIC in monitor mode]
+
+Example:
+
+    sudo python3 fap.py -s FakeAP -i wlan0
+
+### Deauther
+
+This is a simple yet effective deauther able to perform a complete DoS on a network without being logged into the network.
+
+#### Use: 
+
+    sudo python3 deauther.py -t [target gateway MAC] -i [NIC in monitor mode] -c [amount of packets to send]
+
+The time of the DoS will depend on how many packets you send. 100 packets is a 10 seconds DoS. 
+
+Example:
+
+    sudo python3 deauther.py -t FA:KE:MA:CA:DD:RS -i wlan0 -c 10000
+
+## Remote Access
+### Reverse Shell
+
+This is the code for a shell able to execute commands in the victim's machine. Use is pretty simple as you just need to run  the script. By default it will listen to incoming connections from all NIC IPs and at port 5003.
+
+#### Use:
+
+    sudo python3 reverse_shell_attacker.py
+
+And that's it. This way, as soon as the victim starts the other half of the script, you will have access to all it's OS avoiding Firewalls protection.
+
+Soon I will implement the possibility of changing IP and port via CLI commands.
+
+## Payloads
+### Keylogger
+
+A simple keylogger that registers keystrokes and sends them to an email address once every 60 seconds. You may want to change this parameter indicated in the code.
+
+#### Use: 
+
+    sudo python3 keylogger.py
+
+If you pack it into an **exe** before I do and want to contribute, it will be welcomed!
+
+### Reverse Shell
+The other part of the reverse shell. Same usage as the one mentioned above. Also if you pack it into a **dll** or **exe** in order to make an effective payload and want to contribute, just let me know.
+
+## Hiding Data
+### Dencrypter
+
+This tool helps you generate keys to encrypt and decrypt files.
+
+**Generating a key**
+
+Use:
+
+    sudo python3 dencrypter.py -g [key filename]
+
+Example
+
+    sudo python3 dencrypter.py -g key1.key
+
+**Encrypting a file**
+
+Use:
+
+    sudo python3 dencrypter.py -e [file to encrypt] -k [key file to use for encryption]
+
+Example:
+
+    sudo python3 dencrypter.py -e secretfile.txt -k key1.key
+
+**Decrypting a file**
+
+Use:
+
+    sudo python3 dencrypter.py -d [file to decrypt] -k [key file to use for decryption]
+
+Example:
+
+    sudo python3 dencrypter.py -d secretfile.txt -k key1.key

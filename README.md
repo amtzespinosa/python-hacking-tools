@@ -44,7 +44,7 @@ This is a simple *airodump-ng* like **Network Scanner.** To use it you will have
 
     sudo python3 network_scanner.py -i wlan0
 
-You have to specify the NIC you are going to use and has to be in monitor mode.
+You have to specify the NIC you are going to use and has to be in **monitor mode.**
 
 ### ARP Tool
 
@@ -61,6 +61,8 @@ Use:
 Example:
 
     sudo python3 arptool.py -s 192.168.0.1/24
+    
+![ARP Scan output](/outputs/arpscan.png)
 
 **ARP Spoof:** 
 
@@ -72,15 +74,19 @@ Example:
 
     sudo pyhton3 arptool.py -t 192.168.0.20 -g 192.168.0.1
 
+![ARP Spoof output](/outputs/arpspoof.png)
+
 **ARP Spoof detection:**
 
 Use: 
 
-    sudo python3 arptool.py -d [NIC in monitor mode]
+    sudo python3 arptool.py -d [NIC]
   
 Example:
 
     sudo python3 arptool.py -d wlan0
+
+![ARP Spoof Detection output](/outputs/arpdetect.png)
 
 I have uploaded the standalone scripts as well. Those are the ones in the **[/ARPTool](/ARPTool)** folder:
 
@@ -103,8 +109,10 @@ Example:
 
     sudo python3 port_scanner.py 192.168.0.1 -p 1,65535
 
+![Port Scanner output](/outputs/portscanner.png)
+
 ### Packet Sniffer
-This scripts is able to sniff HTTP packets and show interesting raw data if any. It only sniffs at port 80 as HTTPS packets (port 443) are encrypted so it's unuseful to sniff those.
+This scripts is able to sniff HTTP packets and show interesting raw data if any. It only sniffs at port 80 as HTTPS packets (port 443) are encrypted so it's unuseful to sniff those. To sniff packets from a specific host you need to be a **Man in the Middle.** You can achieve so with an ARP Spoofing attack.
 
 #### Use:
 
@@ -113,6 +121,8 @@ This scripts is able to sniff HTTP packets and show interesting raw data if any.
 Example:
 
     sudo python3 sniffer.py -i wlan0 -r
+
+![Sniffer output](/outputs/sniff.png)
 
 This would be part of a future project I'm working on called **FartSuite.** You can imagine what kind tool I'm working on...
 
@@ -183,6 +193,8 @@ And that's it. This way, as soon as the victim starts the other half of the scri
 
 Soon I will implement the possibility of changing IP and port via CLI commands.
 
+![Reverse Shell output](/outputs/revserver.png)
+
 ## Payloads
 ### Keylogger
 
@@ -196,6 +208,8 @@ If you pack it into an **exe** before I do and want to contribute, it will be we
 
 ### Reverse Shell
 The other part of the reverse shell. Same usage as the one mentioned above. Also if you pack it into a **dll** or **exe** in order to make an effective payload and want to contribute, just let me know.
+
+![Reverse Shell output](/outputs/revclient.png)
 
 ## Hiding Data
 ### Dencrypter

@@ -1,5 +1,5 @@
 ![Python Hacking Tools](/img/logo.png)
-![version](https://img.shields.io/badge/tested-locally-green) ![version](https://img.shields.io/badge/language-Python-blue)
+![tested](https://img.shields.io/badge/tested-locally-green) ![language](https://img.shields.io/badge/language-Python-blue)
 
 These are some of the python tools and scripts I have crafted so far. I will be updating the repo as I code more or if any update needs to be made.
 

@@ -50,7 +50,7 @@ You have to specify the NIC you are going to use and has to be in **monitor mode
 
 > **Coming soon:** All ARP utilities will be packed in a CLI tool.
 
-Meanwhile, if you want to **use it as a Python script**, you can download the **[ARPTool](Networking/ARPTool/CLI)** folder and run it like so.
+Meanwhile, if you want to **use it as a Python script**, you can download the **[ARPTool](/Networking/ARPTool/CLI/)** folder and run it like so.
 
 **ARP Scan:** 
 

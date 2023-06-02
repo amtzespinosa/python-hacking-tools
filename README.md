@@ -23,7 +23,14 @@ Groups and categories might not be the most correct ones. Any correction/suggest
   - [DNS Spoofer](#dns-spoofer)
   - [FakeAP](#fakeap) *- Further features under development*
   - [Deauther](#deauther) *- Check [here](https://github.com/amtzespinosa/esp8266-wifi-deauther) the hardware version with an **ESP-8266*** 
-  
+  - [MAC Changer](#mac-changer)
+
+- **[Web Pentesting](#web-pentesting)**
+  - [Reverse Shell](#reverse-shell-client-side) *- Attacker's side*
+
+- **[Brute Force](#brute-force)**
+  - [SSH Brute Force](#ssh-brute-force)
+
 - **[Remote Access](#remote-access)**
   - [Reverse Shell](#reverse-shell-client-side) *- Attacker's side*
   
@@ -35,6 +42,9 @@ Groups and categories might not be the most correct ones. Any correction/suggest
   
 - **[Hiding Data](#hiding-data)**
   - [Dencrypter](#dencrypter)
+
+- **[Communications](#communications)**
+  - [Encrypted Chat](#encrypted-chat)
   
 ## Networking
 ### Network Scanner
@@ -105,7 +115,7 @@ This is the script for a *goddamned-slow* port scanner. Why would you use this i
 
     sudo python3 port_scanner.py [target IP] -p [ports range]
 
-Example:
+#### Example:
 
     sudo python3 port_scanner.py 192.168.0.1 -p 1,65535
 
@@ -118,7 +128,7 @@ This scripts is able to sniff HTTP packets and show interesting raw data if any.
 
     sudo python3 sniffer.py -i [NIC] -r
 
-Example:
+#### Example:
 
     sudo python3 sniffer.py -i wlan0 -r
 
@@ -162,7 +172,7 @@ In the meanwhile...
 
     sudo python3 fap.py -s [SSID] -i [NIC in monitor mode]
 
-Example:
+#### Example:
 
     sudo python3 fap.py -s FakeAP -i wlan0
 
@@ -176,9 +186,40 @@ This is a simple yet effective deauther able to perform a complete DoS on a netw
 
 The time of the DoS will depend on how many packets you send. 100 packets is a 10 seconds DoS. 
 
-Example:
+#### Example:
 
     sudo python3 deauther.py -t FA:KE:MA:CA:DD:RS -i wlan0 -c 10000
+
+### MAC Changer
+
+Simple MAC changing script. You can change your MAC to a random one or to a specific one.
+
+#### Use: 
+
+    sudo python3 machanger.py -i [NIC] -r [for random MAC]/-m [MAC to change to]
+
+#### Example:
+
+Random MAC:
+
+    sudo python3 machanger.py -i wlan0 -r
+
+Specific MAC:
+
+    sudo python3 machanger.py -i wlan0 -m FA:KE:MA:CA:DD:RS
+
+## Web Pentesting
+
+**Instructions of how to use the scripts coming soon...**
+
+## Brute Force
+### SSH Brute Force
+
+Simple SSH login brute force script. Nothing new under the sun!
+
+#### Use: 
+
+    sudo python3 sshbruteforce.py -u/U [single user/user list] -P [password list]
 
 ## Remote Access
 ### Reverse Shell
@@ -245,3 +286,17 @@ Use:
 Example:
 
     sudo python3 dencrypter.py -d secretfile.txt -k key1.key
+
+## Communications
+### Encrypted Chat
+
+Two scripts: one for the server and another one for the clients. The messages are encrypted and decrypted within the client script so they can only be read by the ones who have acces to the key.
+
+The key is hardcoded in the script. Not safe at all but it's a good PoC of how to make secure comms.
+
+> **Note:** To use it from outside your LAN you'll have to make some modifications. These scripts have been tested within the same virtual
+> machine!
+
+#### Use:
+
+To use them, just run the script. They will be further improved to be able to choose the IP of the server room to connect to when running the script. 

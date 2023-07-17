@@ -22,7 +22,7 @@ Groups and categories might not be the most correct ones. Any correction/suggest
 
 - **[Networking](#networking)** 
   - [Network Scanner](#network-scanner)
-  - [ARPTool](#arp-tool) *- CLI tool + individual scripts* 
+  - [ARPTool](#arp-tool) - *CLI tool + individual scripts* 
     - *ARP Scanner*
     - *ARP Spoofer*
     - *ARP Spoofing detection*
@@ -34,7 +34,7 @@ Groups and categories might not be the most correct ones. Any correction/suggest
   - [MAC Changer](#mac-changer)
 
 - **[Web Pentesting](#web-pentesting)**
-  - [DNS Tool](#dns-tool)
+  - [DNS Tool](#dns-tool) - *CLI tool + individual scripts* 
   - [Subdomain Finder](#subdomain-finder)
   - [Link Extractor](#link-extractor)
   - [XSS Scanner](#xss-scanner)
@@ -72,7 +72,7 @@ You have to specify the NIC you are going to use and has to be in **monitor mode
 
 **Installation**
 
-Download the `arptool.zip` inside **[ARPTool](/Networking/ARPTool/CLI/)** folder. Once decompressed, run `install.sh`. This script will make it easier to execute the tool through the terminal but you can still execute the tool as a Python script. If you want to uninstall **arptool** just run the command `arptool-uninstall`. 
+Download the `arptool.zip` inside **[ARPTool](/Networking/ARPTool/CLI/)** folder. Once decompressed, run `sudo bash install.sh`. This script will make it easier to execute the tool through the terminal but you can still execute the tool as a Python script. If you want to uninstall **arptool** just run the command `arptool-uninstall`. 
 
 **ARP Scan:** 
 
@@ -223,10 +223,100 @@ Specific MAC:
 ## Web Pentesting
 
 ### DNS Tool
+
+**Installation**
+
+Download the `dnsrecon.zip` inside **[DNS Tool](</Web Pentesting/DNS Tool/CLI/>)** folder. Once decompressed, run `sudo bash install.sh`. This script will make it easier to execute the tool through the terminal but you can still execute the tool as a Python script. If you want to uninstall **dsnrecon** just run the command `dsnrecon-uninstall`. 
+
+You can use the individual Python scripts as well.
+
+**Info:** 
+
+Use:
+
+    sudo dsnrecon info -d [domain]
+
+Example:
+
+    sudo dsnrecon info -d github.com
+    
+![DNS enum output](/outputs/dnsenum.png)
+
+**Enum:** 
+
+Use:
+
+    sudo dsnrecon enum -d [domain]
+
+Example:
+
+    sudo dsnrecon enum -d github.com
+
 ### Subdomain Finder
+
+This tool is a simple subdomain finder via dictionary (brute force). It is quite fast and efficient. I have provided you with a little 10k subdomains dictionary for you to try it.
+
+#### Use:
+
+    sudo python3 subfinder.py -d [domain] -w [dictionary file]
+
+#### Example:
+
+    sudo python3 subfinder.py -d github.com -w sub10k.txt
+
+![Subfinder output](/outputs/subfinder.png)
+
+It is a multi-thread script and you can set the number of threads with the optional argument **-t** - default is 10. You can as well save the output in a file with the optional argument **-o**.
+
+#### Example:
+
+    sudo python3 subfinder.py -d github.com -w sub10k.txt -t 100 -o sub_found.txt
+
 ### Link Extractor
+
+It might look more like an SEO utility but this script is quite useful for listing directories from a website. You must be careful on big websites, although you can pass a depth parameter to the script, if the website has a lot of links it will recursively check them all. You can as well send the output to a file with the optional **-o** parameter.
+
+> **NOTE:**
+>
+> To use this script you'll have to install beautifulsoup4: **sudo pip3 install beautifulsoup4**.
+
+#### Use:
+
+    sudo python3 linkextractor.py -u [URL] -d [depth] -o [filename]
+
+#### Example:
+
+    sudo python3 linkextractor.py -u https://github.com -d 1 -o directories.txt
+
+![Link extractor output](/outputs/linkextractor.png)
+
 ### XSS Scanner
+
+A simple **XSS Vulnerabilities** scanner. This scanner as well as the **SQLi** scanner are mainly Proof of Concepts as they work but they're not reliable at all. I may improve them in a future.
+
+#### Use:
+
+    sudo python3 xsscan.py -u [URL] 
+
+#### Example:
+
+    sudo python3 xsscan.py -u http://testphp.vulnweb.com/
+
+![XSS scan output](/outputs/xss.png)
+
 ### SQL Injector
+
+Named after a **Thrash Metal** band from Cartagena, Spain, here's my simple **SQLi** scanner. Like said before, it's not reliable by any means but serves as a PoC.
+
+#### Use:
+
+    sudo python3 injector.py -u [URL] 
+
+#### Example:
+
+    sudo python3 injector.py -u http://testphp.vulnweb.com/artists.php?artist=1
+
+![SQLi output](/outputs/sqli.png)
 
 ## Brute Force
 ### SSH Brute Force
@@ -244,13 +334,13 @@ This is the code for a shell able to execute commands in the victim's machine. U
 
 #### Use:
 
-    sudo python3 reverse_shell_attacker.py
+    sudo python3 reverse_shell_client.py
 
 And that's it. This way, as soon as the victim starts the other half of the script, you will have access to all it's OS avoiding Firewalls protection.
 
 Soon I will implement the possibility of changing IP and port via CLI commands.
 
-![Reverse Shell output](/outputs/revserver.png)
+![Reverse Shell output](/outputs/revclient.png)
 
 ## Payloads
 ### Keylogger
@@ -266,7 +356,7 @@ If you pack it into an **exe** before I do and want to contribute, it will be we
 ### Reverse Shell (Server Side)
 The other part of the reverse shell. Same usage as the one mentioned above. Also if you pack it into a **dll** or **exe** in order to make an effective payload and want to contribute, just let me know.
 
-![Reverse Shell output](/outputs/revclient.png)
+![Reverse Shell output](/outputs/revserver.png)
 
 ## Hiding Data
 ### Dencrypter
@@ -310,9 +400,8 @@ Two scripts: one for the server and another one for the clients. The messages ar
 
 The key is hardcoded in the script. Not safe at all but it's a good PoC of how to make secure comms.
 
-> **Note:** To use it from outside your LAN you'll have to make some modifications. These scripts have been tested within the same virtual
-> machine!
+> **Note:** To use it from outside your LAN you'll have to make some modifications. These scripts have been tested within the same virtual machine!
 
 #### Use:
 
-To use them, just run the script. They will be further improved to be able to choose the IP of the server room to connect to when running the script. 
+To use them, just run the scripts. They will be further improved to be able to choose the IP of the server room to connect to when running the script. 

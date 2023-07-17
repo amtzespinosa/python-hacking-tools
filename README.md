@@ -22,7 +22,7 @@ Groups and categories might not be the most correct ones. Any correction/suggest
 
 - **[Networking](#networking)** 
   - [Network Scanner](#network-scanner)
-  - [ARPTool](#arp-tool) *- CLI script + individual scripts* 
+  - [ARPTool](#arp-tool) *- CLI tool + individual scripts* 
     - *ARP Scanner*
     - *ARP Spoofer*
     - *ARP Spoofing detection*
@@ -70,19 +70,19 @@ You have to specify the NIC you are going to use and has to be in **monitor mode
 
 ### ARP Tool
 
-> **Coming soon:** All ARP utilities will be packed in a CLI tool.
+**Installation**
 
-Meanwhile, if you want to **use it as a Python script**, you can download the **[ARPTool](/Networking/ARPTool/CLI/)** folder and run it like so.
+Download the `arptool.zip` inside **[ARPTool](/Networking/ARPTool/CLI/)** folder. Once decompressed, run `install.sh`. This script will make it easier to execute the tool through the terminal but you can still execute the tool as a Python script. If you want to uninstall **arptool** just run the command `arptool-uninstall`. 
 
 **ARP Scan:** 
 
 Use:
 
-    sudo python3 arptool.py -s [target network/subnet]
+    sudo arptool -s [target network/subnet]
 
 Example:
 
-    sudo python3 arptool.py -s 192.168.0.1/24
+    sudo arptool -s 192.168.0.1/24
     
 ![ARP Scan output](/outputs/arpscan.png)
 
@@ -90,11 +90,11 @@ Example:
 
 Use:
 
-    sudo python3 arptool.py -t [victim's IP] -g [gateway IP]
+    sudo arptool -t [victim's IP] -g [gateway IP]
 
 Example:
 
-    sudo pyhton3 arptool.py -t 192.168.0.20 -g 192.168.0.1
+    sudo arptool -t 192.168.0.20 -g 192.168.0.1
 
 ![ARP Spoof output](/outputs/arpspoof.png)
 
@@ -102,11 +102,11 @@ Example:
 
 Use: 
 
-    sudo python3 arptool.py -d [NIC]
+    sudo arptool -d [NIC]
   
 Example:
 
-    sudo python3 arptool.py -d wlan0
+    sudo arptool -d wlan0
 
 ![ARP Spoof Detection output](/outputs/arpdetect.png)
 

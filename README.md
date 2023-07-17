@@ -1,8 +1,11 @@
 ![Python Hacking Tools](/img/banner.png)
 
 <div align="center">
-  
-![tested](https://img.shields.io/badge/tested-locally-green) ![language](https://img.shields.io/badge/language-Python-blue)
+
+![python](https://img.shields.io/badge/Python-3.11-FFDA4A.svg?style=flat&logo=python&logoColor=white&labelColor=blue)
+![tested](https://img.shields.io/badge/tested-locally-green) 
+![OS](https://img.shields.io/badge/OS-Kali_Linux-blue)
+![OS](https://img.shields.io/badge/OS-Ubuntu-orange)
 
 </div>
 
@@ -31,7 +34,11 @@ Groups and categories might not be the most correct ones. Any correction/suggest
   - [MAC Changer](#mac-changer)
 
 - **[Web Pentesting](#web-pentesting)**
-  - [Reverse Shell](#reverse-shell-client-side) *- Attacker's side*
+  - [DNS Tool](#dns-tool)
+  - [Subdomain Finder](#subdomain-finder)
+  - [Link Extractor](#link-extractor)
+  - [XSS Scanner](#xss-scanner)
+  - [SQL Injector](#sql-injector)
 
 - **[Brute Force](#brute-force)**
   - [SSH Brute Force](#ssh-brute-force)
@@ -49,7 +56,7 @@ Groups and categories might not be the most correct ones. Any correction/suggest
   - [Dencrypter](#dencrypter)
 
 - **[Communications](#communications)**
-  - [Encrypted Chat](#encrypted-chat)
+  - [Encrypted Chat](#encrypted-chat)  - *PoC*
   
 ## Networking
 ### Network Scanner
@@ -215,7 +222,11 @@ Specific MAC:
 
 ## Web Pentesting
 
-**Instructions of how to use the scripts coming soon...**
+### DNS Tool
+### Subdomain Finder
+### Link Extractor
+### XSS Scanner
+### SQL Injector
 
 ## Brute Force
 ### SSH Brute Force
@@ -227,7 +238,7 @@ Simple SSH login brute force script. Nothing new under the sun!
     sudo python3 sshbruteforce.py -u/U [single user/user list] -P [password list]
 
 ## Remote Access
-### Reverse Shell
+### Reverse Shell (Client Side)
 
 This is the code for a shell able to execute commands in the victim's machine. Use is pretty simple as you just need to run  the script. By default it will listen to incoming connections from all NIC IPs and at port 5003.
 
@@ -252,7 +263,7 @@ A simple keylogger that registers keystrokes and sends them to an email address 
 
 If you pack it into an **exe** before I do and want to contribute, it will be welcomed!
 
-### Reverse Shell
+### Reverse Shell (Server Side)
 The other part of the reverse shell. Same usage as the one mentioned above. Also if you pack it into a **dll** or **exe** in order to make an effective payload and want to contribute, just let me know.
 
 ![Reverse Shell output](/outputs/revclient.png)

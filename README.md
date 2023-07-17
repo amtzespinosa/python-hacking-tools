@@ -1,4 +1,4 @@
-![Python Hacking Tools](/img/logo.png)
+![Python Hacking Tools](/img/banner.png)
 
 <div align="center">
   

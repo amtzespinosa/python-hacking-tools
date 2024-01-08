@@ -13,7 +13,8 @@ These are some of the python tools and scripts I have crafted so far. I will be 
 
 Some of them may have their own repo for further explanation/ease of installation (as in the case of the CLI tools).
 
-> **Note:** I know many of the scripts are not precisely clean neither efficient. This is because they were coded in a rush during some jobs and fastly and poorly cleaned afterwards. My apologies.
+> [!NOTE]
+> I know many of the scripts are not precisely clean neither efficient. This is because they were coded in a rush during some jobs and fastly and poorly cleaned afterwards. My apologies.
 
 If you are promped with any error when running any script, check the error, it might be due to any library missing. As in the case of the keylogger as you must install the keyboard package for python.
 
